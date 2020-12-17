@@ -12,7 +12,10 @@ namespace GameProject {
         }
 
         protected override void Initialize() {
-            // TODO: Add your initialization logic here
+            Window.AllowUserResizing = true;
+            _graphics.PreferredBackBufferWidth = 1700;
+            _graphics.PreferredBackBufferHeight = 900;
+            _graphics.ApplyChanges();
 
             base.Initialize();
         }
@@ -20,7 +23,8 @@ namespace GameProject {
         protected override void LoadContent() {
             _s = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            Assets.Setup(Content);
+
             InputHelper.Setup(this);
         }
 
@@ -39,7 +43,13 @@ namespace GameProject {
         protected override void Draw(GameTime gameTime) {
             GraphicsDevice.Clear(Color.Black);
 
-            // TODO: Add your drawing code here
+            _s.Begin(effect: Assets.Linear);
+            _s.Draw(Assets.Square, new Rectangle(100, 100, 400, 400), Color.White);
+            _s.End();
+
+            _s.Begin(effect: Assets.Expo);
+            _s.Draw(Assets.Square, new Rectangle(800, 100, 800, 800), Color.White);
+            _s.End();
 
             base.Draw(gameTime);
         }
