@@ -13,6 +13,12 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin color.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:color.fx
+
 #begin expo.fx
 /importer:EffectImporter
 /processor:EffectProcessor
@@ -24,6 +30,12 @@
 /processor:EffectProcessor
 /processorParam:DebugMode=Auto
 /build:linear.fx
+
+#begin noise.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:noise.fx
 
 #begin square.png
 /importer:TextureImporter

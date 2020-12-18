@@ -34,7 +34,7 @@ namespace GameProject {
             if (_quit.Pressed())
                 Exit();
 
-            // TODO: Add your update logic here
+            Assets.Noise.Parameters["time"].SetValue((float)gameTime.TotalGameTime.TotalMilliseconds);
 
             InputHelper.UpdateCleanup();
             base.Update(gameTime);
@@ -43,12 +43,8 @@ namespace GameProject {
         protected override void Draw(GameTime gameTime) {
             GraphicsDevice.Clear(Color.Black);
 
-            _s.Begin(effect: Assets.Linear);
-            _s.Draw(Assets.Square, new Rectangle(100, 100, 400, 400), Color.White);
-            _s.End();
-
-            _s.Begin(effect: Assets.Expo);
-            _s.Draw(Assets.Square, new Rectangle(800, 100, 800, 800), Color.White);
+            _s.Begin(effect: Assets.Noise);
+            _s.Draw(Assets.Square, new Rectangle(100, 100, 1000, 500), Color.White);
             _s.End();
 
             base.Draw(gameTime);
